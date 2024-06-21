@@ -1,10 +1,329 @@
-<!-- core/templates/home.html -->
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home | {{ block.super }}{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the Home Page
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga obcaecati accusamus perferendis quia similique? Officia vel rem et aut dicta placeat nostrum cumque recusandae sint, soluta vero quam, voluptatum, sed optio distinctio reiciendis adipisci cupiditate sapiente. Iusto blanditiis corrupti minus accusamus autem vitae! Ipsum laborum placeat consectetur maxime aliquid repellat.
-    </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
+</head>
+
+<body>
+
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="{% url 'home' %}" class="nav__logo">TRADE SOCIAL.</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="{% url 'index' %}" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{% url 'marketplace' %}" class="nav__link">MarketPlace</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#post_direct" class="nav__link">Posts</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+                <!-- Search button -->
+                <form method="get" action="">
+                    <div class="tb">
+                        <div class="td"><input type="text" placeholder="Search" required></div>
+                        <div class="td" id="s-cover">
+                            <button type="submit">
+                                <div id="s-circle"></div>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Login button -->
+                <i class="ri-user-line nav__login" id="login-btn"></i>
+
+                <!-- Toggle button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <div class="heading2">Welcome to Trade Social Blog!</div>
+        <br>
+        <div class="welcome_note">Here, you'll find the latest tips, trends, and insights to help you make the most of our dynamic marketplace. Whether you're a merchant looking to boost your sales or a customer searching for the best deals, our blog is your go-to resource for expert advice, success stories, and community updates. Join us as we explore the exciting world of social commerce and discover how Trade Social transforming the way we buy and sell.</div>
+
+        <!-- ====================Scroll Bar=================================== -->
+        <div class="scroll-container">
+            <div class="heading">Search by Posts</div>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item" data-filter=".food">
+                        <img src="{% static 'images/Foods_home.jpg' %}"/>
+                        <div class="overlay">
+                            <div class="text">Foods</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-filter=".automobile">
+                        <img src="{% static 'images/Public_Sectors_home.jpg' %}"/>
+                        <div class="overlay">
+                            <div class="text">Automobile</div>
+                        </div>
+                    </div>
+                    <!-- Add more carousel items with respective data-filter attributes -->
+                    <div class="carousel-item" data-filter=".technology">
+                      <img src="{% static 'images/Technology_blog.jpg' %}"/>
+                      <div class="overlay">
+                          <div class="text">Technology</div>
+                      </div>
+                  </div>
+                  <div class="carousel-item" data-filter=".food">
+                    <img src="{% static 'images/Foods_home.jpg' %}"/>
+                    <div class="overlay">
+                        <div class="text">Foods</div>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-filter=".automobile">
+                      <img src="{% static 'images/Public_Sectors_home.jpg' %}"/>
+                      <div class="overlay">
+                          <div class="text">Automobile</div>
+                      </div>
+                  </div>
+                  <!-- Add more carousel items with respective data-filter attributes -->
+                  <div class="carousel-item" data-filter=".technology">
+                    <img src="{% static 'images/Technology_blog.jpg' %}"/>
+                    <div class="overlay">
+                        <div class="text">Technology</div>
+                    </div>
+                  </div>
+                <div class="carousel-item" data-filter=".food">
+                  <img src="{% static 'images/Foods_home.jpg' %}"/>
+                  <div class="overlay">
+                      <div class="text">Foods</div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-filter=".automobile">
+                    <img src="{% static 'images/Public_Sectors_home.jpg' %}"/>
+                    <div class="overlay">
+                        <div class="text">Automobile</div>
+                    </div>
+                </div>
+                <!-- Add more carousel items with respective data-filter attributes -->
+                <div class="carousel-item" data-filter=".technology">
+                  <img src="{% static 'images/Technology_blog.jpg' %}"/>
+                  <div class="overlay">
+                      <div class="text">Technology</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <br>
+        <!--================================ Blog Posts ========================================= -->
+        <div id="post_direct" class="heading2">Recent Blog Categories</div>
+        <div class="container_blog">
+
+          <div class="card food">
+            <div class="card__header">
+                <img src="{% static 'images/Food_blog.jpg' %}" class="card__image">
+            </div>
+            <div class="card__body">
+                <span class="tag tag-brown">Food</span>
+                <h4>Delicious Food</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+            </div>
+            <div class="card__footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/40?img=2" class="user__image">
+                    <div class="user__info">
+                        <small>Jony Doe</small>
+                        <br>
+                        <small>Yesterday</small>
+                    </div>
+                </div>
+                <a href="#" class="button">Contact Us</a>
+            </div>
+          </div>
+          
+
+          <div class="card automobile">
+            <div class="card__header">
+                <img src="{% static 'images/Automobile_blog.jpg' %}" class="card__image">
+            </div>
+            <div class="card__body">
+                <span class="tag tag-red">Automobile</span>
+                <h4>Race to your heart content</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+            </div>
+            <div class="card__footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/40?img=3" class="user__image">
+                    <div class="user__info">
+                        <small>John Doe</small>
+                        <br>
+                        <small>2d ago</small>
+                    </div>
+                </div>
+                <a href="#" class="button">Contact Us</a>
+            </div>
+          </div>
+          
+          <!-- Add more blog cards with respective classes for different tags -->
+          <div class="card technology">
+            <div class="card__header">
+                <img src="{% static 'images/Technology_blog.jpg' %}" class="card__image">
+            </div>
+            <div class="card__body">
+                <span class="tag tag-blue">Technology</span>
+                <h4>Race to your heart content</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+            </div>
+            <div class="card__footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/40?img=3" class="user__image">
+                    <div class="user__info">
+                        <small>John Doe</small>
+                        <br>
+                        <small>2d ago</small>
+                    </div>
+                </div>
+                <a href="#" class="button">Contact Us</a>
+            </div>
+          </div>
+
+          <div class="card food">
+            <div class="card__header">
+                <img src="{% static 'images/Food_blog.jpg' %}" class="card__image">
+            </div>
+            <div class="card__body">
+                <span class="tag tag-brown">Food</span>
+                <h4>Delicious Food</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+            </div>
+            <div class="card__footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/40?img=2" class="user__image">
+                    <div class="user__info">
+                        <small>Jony Doe</small>
+                        <br>
+                        <small>Yesterday</small>
+                    </div>
+                </div>
+                <a href="#" class="button">Contact Us</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ======================================== Call to action ===================================================== -->
+        <div class="contact_us">
+            <div class="heading2">Call to Action</div>
+            <br>
+            <div class="call_to_action_note">
+                Ready to take your advertising to the next level? Join us today and start leveraging our cost-effective advertising solutions. Don't miss out on the opportunity to connect with a wider audience and boost your visibility. Contact us now!
+            </div>
+            <a href="#" id="call_to_action_btn" class="button">Call to Action</a>
+        </div>
+    </main>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var iso = new Isotope('.container_blog', {
+                itemSelector: '.card',
+                layoutMode: 'fitRows'
+            });
+
+            document.querySelectorAll('.carousel-item').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    var filterValue = this.getAttribute('data-filter');
+                    iso.arrange({ filter: filterValue });
+                });
+            });
+        });
+    </script>
+
+    <!-- ================ FOOTER ==================================== -->
+
+    <footer id="footer" class="footer">
+
+      <div class="container">
+          <div class="row gy-4">
+              <div class="col-lg-5 col-md-12 footer-info">
+                  <a href="index.html" class="logo d-flex align-items-center">
+                      <span>Trade Social</span>
+                  </a>
+                  <p>Your community platform for residents in Aurangabad, Bihar</p>
+              </div>
+
+              <div class="col-lg-2 col-6 footer-links">
+                  <h4><b>Useful Links</b></h4>
+                  <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#Services">Services</a></li>
+                      <li><a href="#">Terms of service</a></li>
+                      <li><a href="#">Privacy policy</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-lg-2 col-6 footer-links">
+                  <h4><b>Our Services</b></h4>
+                  <ul>
+                      <li><a href="#Services">Product Listing</a></li>
+                      <li><a href="#Services">Verify Merchant Accounts</a></li>
+                      <li><a href="#Services">Advertising Services</a></li>
+                      <li><a href="#Services">Marketing</a></li>
+                      <li><a href="#Services">Community Tools</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                  <h4><b>Contact Us</b></h4>
+                  <p>
+                      <h6><b>Aurangabad</b></h6>
+                      <h6><b>Bihar</b></h6><br><br>
+                      <b>Phone:</b> +91 12345 12345 <br>
+                      <b>Email:</b> <a href="#" class="email">tradesocialservice@gmail.com</a><br>
+                  </p>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="container mt-4">
+          <div class="copyright">
+              &copy; Copyright <strong><span>Trade Social</span></strong>. All Rights Reserved
+          </div>
+      </div>
+
+  </footer>
+</body>
+</html>
 {% endblock %}
