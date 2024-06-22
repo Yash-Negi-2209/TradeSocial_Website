@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}MarketPlace | {{ block.super }}{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============== Font Awesome =============== -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/
+    all.css"
+    integrity="
+    sha384-fnmOCqbTiWIlj8LyTj07mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{% static 'css/style_marketplace.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- ============= JS ========================= -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="{% static 'js/marketplace.js' %}"></script>
+</head>
+
+<body>
+
+<!--==================== HEADER ====================-->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="{% url 'home' %}" class="nav__logo">TRADE SOCIAL.</a>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="{% url 'index' %}" class="nav__link">Home</a>
+                    
+                </li>
+
+                <li class="nav__item">
+                    <a href="{% url 'marketplace' %}" class="nav__link">MarketPlace</a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="{% url 'home' %}" class="nav__link">Posts</a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="{% url 'index' %}#Contact" class="nav__link">Contact Us</a>
+                </li>
+            </ul>
+
+            <!-- Close button -->
+            <div class="nav__close" id="nav-close">
+                <i class="ri-close-line"></i>
+            </div>
+        </div>
+
+        <div class="nav__actions">
+
+            <!-- Search button -->
+            <form method="get" action="">
+                <div class="tb">
+                  <div class="td"><input type="text" placeholder="Search" required></div>
+                  <div class="td" id="s-cover">
+                    <button type="submit">
+                      <div id="s-circle"></div>
+                      <span></span>
+                    </button>
+                  </div>
+                </div>
+            </form>
+
+            <!-- Login button -->
+            <a href="{% url 'login' %}" class="nav__login" id="login-btn">
+                <i class="ri-user-line"></i>
+            </a>  
+
+            <!-- Toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!--==================== MAIN ====================-->
+<main class="main">
+
+    <div class="heading2">Welcome to Marketplace!</div>
+    <br>
+    <div class="welcome_note">Welcome to Trade Social, the innovative marketplace where commerce meets community. Our platform empowers merchants to showcase their products, promote sales, and engage directly with customers in a dynamic, interactive environment. Whether you're a buyer looking for the best deals or a seller eager to expand your reach, Trade Social provides the tools you need to negotiate, connect, and thrive. Experience a new way to shop and sell - where every transaction is an opportunity to build relationships and drive success. Join us at Trade Social and transform your business today!</div>
+
+    <!-- ====================Sroll Bar=================================== -->
+    <div class="add" id="advertise">Recently Added Businesses
+
+        <div class="slider owl-carousel">
+            <div class="card">
+                <div class="img">
+                    <img src="{% static 'images/1.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">Briana Tozour</div>
+                    <div class="sub-title">Graphic Designer</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas.</p>
+                    <a href="#" class="button">Contact Us</a>
+                </div>
+            </div>
+        
+            <div class="card">
+                <div class="img">
+                    <img src="{% static 'images/2.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">Briana Tozour</div>
+                    <div class="sub-title">Graphic Designer</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas.</p>
+                    <a href="#" class="button">Contact Us</a>
+                </div>
+            </div>
+        
+            <div class="card">
+                <div class="img">
+                    <img src="{% static 'images/3.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">Briana Tozour</div>
+                    <div class="sub-title">Graphic Designer</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas.</p>
+                    <a href="#" class="button">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+
+    <!--================================ Marketplace ========================================= -->
+<div class="market" id="bazaar">
+    <div class="main-container">
+        <div class="heading3">Search by Categories</div>
+
+        <div class="card-filter">
+            <ul class="filter">
+                <li class="active category-title" data-filter="*" id="first">All</li>
+                <li data-filter=".culture" class="category-title">Culture</li>
+                <li data-filter=".politics" class="category-title">Politics</li>
+                <li data-filter=".finance" class="category-title">Finance</li>
+                <li data-filter=".business" class="category-title">Business</li>
+            </ul>
+        </div>
+
+        <div class="posts-collect">
+            <div class="card-content">
+                <ul class="card-cols card-cols-3 row">
+
+                    <li class="post-item culture col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Culture</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item finance col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Finance</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item business col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Business</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item culture col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Culture</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item politics col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Politics</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item culture col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Culture</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item business col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Business</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item politics col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Politics</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item finance col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Finance</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="post-item politics col-md-4">
+                        <div class="card-col card-hover-01">
+                            <div class="card-img">
+                                <a href="#">
+                                    <img src="{% static 'images/Merchant.png' %}" class="img-fluid" title="" alt="">
+                                </a>
+                                <div class="category-name">Politics</div>
+                                <div class="card-info">
+                                    <div class="heading4">Vishweb Design </div>
+                                    <div class="para">Recent Work</div>
+                                    <button class="button2">Visit store</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================================ Marketplace End ========================================= -->
+
+
+
+
+    <div class="contact_us">
+        <div class="heading2">Call to Action</div><br>
+        <div class="call_to_action_note">
+            Ready to take your advertising to the next level? Join us today and start leveraging our cost-effective advertising solutions. Don't miss out on the opportunity to connect with a wider audience and boost your visibility. Contact us now!
+        </div>
+        <a href="#" id="call_to_action_btn" class="button">Call to Action</a>
+    </div>
+
+
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script type="text/javascript">
+        var $grid = $('.posts-collect').isotope({
+            // options
+            itemSelector: '.post-item',
+            layoutMode: 'fitRows'
+        });
+    
+        $('.filter li').on('click', function() {
+            $('.filter li').removeClass('active');
+            $(this).addClass('active');
+    
+            var selector = $(this).attr("data-filter");
+            $grid.isotope({ filter: selector });
+            return false;
+        });
+    </script>
+
+    <!-- ================ FOOTER ==================================== -->
+
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-info">
+                    <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+                        <span>Trade Social</span>
+                    </a>
+                    <p>Your community platform for residents in Aurangabad, Bihar</p>
+                </div>
+  
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4><b>Useful Links</b></h4>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'index' %}#Services">Services</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+  
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4><b>Our Services</b></h4>
+                    <ul>
+                        <li><a href="{% url 'index' %}#Services">Product Listing</a></li>
+                        <li><a href="{% url 'index' %}#Services">Verify Merchant Accounts</a></li>
+                        <li><a href="{% url 'index' %}#Services">Advertising Services</a></li>
+                        <li><a href="{% url 'index' %}#Services">Marketing</a></li>
+                        <li><a href="{% url 'index' %}#Services">Community Tools</a></li>
+                    </ul>
+                </div>
+  
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4><b>Contact Us</b></h4>
+                    <p>
+                        <h6><b>Aurangabad</b></h6>
+                        <h6><b>Bihar</b></h6><br><br>
+                        <b>Phone:</b> +91 12345 12345 <br>
+                        <b>Email:</b> <a href="#" class="email">tradesocialservice@gmail.com</a><br>
+                    </p>
+                </div>
+  
+            </div>
+        </div>
+  
+        <div class="container mt-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Trade Social</span></strong>. All Rights Reserved
+            </div>
+        </div>
+  
+    </footer>
+
+</body>
+</html>
+{% endblock %}
